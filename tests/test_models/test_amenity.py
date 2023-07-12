@@ -4,9 +4,9 @@ Unittest for amenity module
 """
 import os
 import unittest
-from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.amenity import Amenity
 
 
 class Test_Amenity(unittest.TestCase):
@@ -47,18 +47,17 @@ class Test_Amenity(unittest.TestCase):
         """ test type """
         self.assertEqual(type(self.eg.name), str)
 
-    def testHasAttributes(self):
-        """verify attributes"""
-        self.assertTrue(hasattr(self.eg, 'name'))
-        self.assertTrue(hasattr(self.amenity, 'id'))
-        self.assertTrue(hasattr(self.eg, 'created_at'))
-        self.assertTrue(hasattr(self.amenity, 'updated_at'))
-
     def test_str(self):
         eg = Amenity()
         """test that the str method has the correct output"""
         string = "[Amenity] ({}) {}".format(eg.id, eg.__dict__)
         self.assertEqual(string, str(eg))
 
+    def testHasAttributes(self):
+        """verify attributes"""
+        self.assertTrue(hasattr(self.eg, 'name'))
+        self.assertTrue(hasattr(self.amenity, 'id'))
+        self.assertTrue(hasattr(self.eg, 'created_at'))
+        self.assertTrue(hasattr(self.amenity, 'updated_at'))
 if __name__ == "__main__":
     unittest.main()
