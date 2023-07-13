@@ -207,7 +207,7 @@ class Test_FileStorage_m(unittest.TestCase):
         bsave = ""
         with open("file.json", "r") as f:
             bsave = f.read()
-        self.assertIn("BaseModel." + Bsmodel.id,bsave)
+        self.assertIn("BaseModel." + Bsmodel.id, bsave)
         self.assertIn("Amenity." + Ame.id, bsave)
         self.assertIn("Place." + Pla.id, bsave)
         self.assertIn("User." + Usr.id, bsave)

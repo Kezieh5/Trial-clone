@@ -52,7 +52,6 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIn("'created_at': " + date_rep, Bsmodel_str)
         self.assertIn("'updated_at': " + date_rep, Bsmodel_str)
 
-
     def test_None_kwargs(self):
         with self.assertRaises(TypeError):
             BaseModel(id=None, created_at=None, updated_at=None)
@@ -97,6 +96,7 @@ class Test_BaseModel(unittest.TestCase):
         Bsmodel.save()
         self.assertLess(s_updated_at, Bsmodel.updated_at)
 
+
 class Test_save(unittest.TestCase):
 
     @classmethod
@@ -117,6 +117,7 @@ class Test_save(unittest.TestCase):
         except IOError:
             pass
 
+
 class Test_to_dict(unittest.TestCase):
 
     def testto_dict(self):
@@ -135,7 +136,6 @@ class Test_to_dict(unittest.TestCase):
     def testtype(self):
         Bsmodel = BaseModel()
         self.assertTrue(dict, type(Bsmodel.to_dict()))
-
 
     def testto_dict_updated_at(self):
         Bsmodel = BaseModel()
@@ -167,6 +167,7 @@ class Test_to_dict(unittest.TestCase):
         Bsmodel = BaseModel()
         DBsmodel = Bsmodel.to_dict()
         self.assertEqual(str, type(DBsmodel["created_at"]))
+
 
 if __name__ == "__main__":
     unittest.main()
